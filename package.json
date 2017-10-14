@@ -17,13 +17,14 @@
   "bugs": {
     "url": "https://github.com/norman-thomas/homebridge-particle-io/issues"
   },
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "lint": "eslint src/ test/",
     "jshint": "jshint src/",
     "check": "npm run lint && npm run jshint",
     "test": "nyc --reporter=html --reporter=text mocha test/",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "build": "babel ./src -d lib"
   },
   "engines": {
     "node": ">=4.3.2",
@@ -34,6 +35,9 @@
     "request": "^2.65.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
     "chai": "^3.5.0",
     "coveralls": "^2.11.15",
     "eslint": "^3.13.1",

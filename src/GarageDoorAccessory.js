@@ -1,17 +1,17 @@
 const ActorAccessory = require('./ActorAccessory.js');
 
-class LightbulbAccessory extends ActorAccessory {
+class GarageDoorAccessory extends ActorAccessory {
 
   constructor(log, url, accessToken, device, homebridge) {
     const Service = homebridge.hap.Service;
     const Characteristic = homebridge.hap.Characteristic;
-    super(log, url, accessToken, device, homebridge, Service.Lightbulb, Characteristic.On);
+    super(log, url, accessToken, device, homebridge, Service.GarageDoorOpener, Characteristic.On);
   }
 
   setState(value, callback) {
-    super.setState('power', value ? '1' : '0', callback);
+    super.setState('activateDoor', value ? '1' : '0', callback);
   }
 
 }
 
-module.exports = LightbulbAccessory;
+module.exports = GarageDoorAccessory;
